@@ -18,12 +18,12 @@
   "customizations": {
     "vscode": {
       "extensions": [
-		"dbaeumer.vscode-eslint",
-		"esbenp.prettier-vscode",
-		"streetsidesoftware.code-spell-checker",
-		"bierner.markdown-mermaid",
-		"golang.Go"
-	]
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "streetsidesoftware.code-spell-checker",
+        "bierner.markdown-mermaid",
+        "golang.Go"
+      ]
     }
   },
 

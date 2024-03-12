@@ -49,9 +49,7 @@
     "vue"
   ],
   // tsconfig.eslint.jsonを自動認識
-  "eslint.workingDirectories": [
-    { "mode": "auto" }
-  ],
+  "eslint.workingDirectories": [{ "mode": "auto" }],
   "explorer.confirmDragAndDrop": false,
   "files.associations": {
     "Dockerfile*": "dockerfile"
@@ -81,5 +79,5 @@
   "workbench.editor.tabSizing": "shrink",
   "accessibility.signals.lineHasError": {
     "sound": "off"
-  },
+  }
 }
