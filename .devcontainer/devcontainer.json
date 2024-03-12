@@ -1,0 +1,37 @@
+{
+  "name": "grpc-connect-dev",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "NODE_VERSION": "18" // Set to "none" to skip Node.js installation
+    }
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": "true",
+      "configureZshAsDefaultShell": "true",
+      "upgradePackages": "true",
+      "username": "go"
+    },
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+		"dbaeumer.vscode-eslint",
+		"esbenp.prettier-vscode",
+		"streetsidesoftware.code-spell-checker",
+		"bierner.markdown-mermaid",
+		"golang.Go"
+	]
+    }
+  },
+
+  // コンテナ名をつける
+  "runArgs": ["--name", "grpc-connect-dev"],
+  "remoteEnv": {
+    "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+  },
+
+  "remoteUser": "go"
+}
