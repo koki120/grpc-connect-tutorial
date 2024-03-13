@@ -22,7 +22,9 @@
         "esbenp.prettier-vscode",
         "streetsidesoftware.code-spell-checker",
         "bierner.markdown-mermaid",
-        "golang.Go"
+        "golang.Go",
+        "plex.vscode-protolint",
+        "zxh404.vscode-proto3"
       ]
     }
   },

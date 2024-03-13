@@ -14,6 +14,9 @@
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[go]": {
+    "editor.defaultFormatter": "golang.go"
+  },
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.acceptSuggestionOnEnter": "on",
   "editor.bracketPairColorization.enabled": true,
@@ -36,7 +39,6 @@
   "editor.suggest.preview": true,
   "editor.suggestSelection": "first",
   "editor.tabSize": 4,
-  "eslint.alwaysShowStatus": true,
   "eslint.format.enable": true,
   "eslint.probe": [
     "html",
@@ -65,8 +67,6 @@
     "**/.venv": true,
     "**/__pycache__": true
   },
-  "files.formatOnPaste": true,
-  "files.formatOnSave": true,
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
   "go.lintOnSave": "file",
