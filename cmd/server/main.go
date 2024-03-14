@@ -5,9 +5,11 @@ import (
 	greetv1 "example/gen/greet/v1"
 	"example/gen/greet/v1/greetv1connect"
 	"fmt"
+	"log"
 	"net/http"
 
 	"connectrpc.com/connect"
+	"github.com/go-chi/chi/v5"
 	"golang.org/x/net/http2"
 	"golang.org/x/net/http2/h2c"
 )
@@ -31,12 +33,14 @@ func (h *handler) Greet(ctx context.Context, req *connect.Request[greetv1.GreetR
 }
 
 func main() {
-	mux := http.NewServeMux()
-	path, handler := greetv1connect.NewGreetServiceHandler(NewHandler("Hello World"))
-	mux.Handle(path, handler)
-	http.ListenAndServe(
-		"localhost:8080",
-		h2c.NewHandler(mux, &http2.Server{}),
-	)
+	mux := chi.NewRouter()
+	mux.Group(func(r chi.Router) {
+		path, handler := greetv1connect.NewGreetServiceHandler(NewHandler("Hello World"))
+		r.Handle(path+"*", handler)
+	})
+
+	if err := http.ListenAndServe("localhost:8080", h2c.NewHandler(mux, &http2.Server{})); err != nil {
+		log.Fatal(err)
+	}
 
 }
