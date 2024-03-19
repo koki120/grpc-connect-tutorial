@@ -10,6 +10,7 @@ import (
 
 	"connectrpc.com/connect"
 	"github.com/go-chi/chi/v5"
+	"github.com/go-chi/cors"
 	"golang.org/x/net/http2"
 	"golang.org/x/net/http2/h2c"
 )
@@ -25,7 +26,6 @@ func NewHandler(
 }
 
 func (h *handler) Greet(ctx context.Context, req *connect.Request[greetv1.GreetRequest]) (*connect.Response[greetv1.GreetResponse], error) {
-
 	res := connect.NewResponse(&greetv1.GreetResponse{
 		Greeting: fmt.Sprintf("%s, %s!", h.deps, req.Msg.Name),
 	})
@@ -35,6 +35,7 @@ func (h *handler) Greet(ctx context.Context, req *connect.Request[greetv1.GreetR
 func main() {
 	mux := chi.NewRouter()
 	mux.Group(func(r chi.Router) {
+		r.Use(cors.Handler(cors.Options{}))
 		path, handler := greetv1connect.NewGreetServiceHandler(NewHandler("Hello World"))
 		r.Handle(path+"*", handler)
 	})
